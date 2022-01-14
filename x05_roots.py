@@ -24,7 +24,7 @@ x05. Determine the roots
 Create a function that will determine the roots.
 You may import the functions from your other assignments.
 '''
-
+import math
 def roots(a,b,c):
   '''
   input parameters:
@@ -36,14 +36,23 @@ def roots(a,b,c):
   list with the 2 values of the roots if there are solutions
   None if there are no solutions
   '''
-  return None
+  list1 = []
+  try:
+    quadratic1 = (-b + math.sqrt(b**2 - (4*a*c))) / (2*a)
+    quadratic2 = (-b - math.sqrt(b**2 - (4*a*c))) / (2*a)
+  except:
+    return None
+  list1.append(int(quadratic1))
+  list1.append(int(quadratic2))
+
+  return list1
 
 def main():
-  assert -3 in roots(1,-1,-6) == True
-  assert 2 in roots(1,-1,-6) == True
-  assert -2 in roots(1,4,4) == True
+  assert (3 in roots(1,-1,-6)) == True
+  assert (-2 in roots(1,-1,-6)) == True
+  assert (-2 in roots(1,4,4)) == True
   assert roots(2,3,8) == None
   
 if __name__ == "__main__":
-  main()
-  
+ main()
+

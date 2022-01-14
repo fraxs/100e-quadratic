@@ -28,11 +28,13 @@ def factorable(discriminant):
     True - can be factored
     False - can not be factored
   '''
-  discrim = b**2 - (4*a*c)
-  if math.sqrt(discrim) == int(math.sqrt(discrim)):
-    return True
-  else:
+  discrim = (b**2 - (4*a*c))
+  if discrim < 0:
     return False
+  sq = math.sqrt(discrim)
+  modulus = sq % 1
+  perfect_square = modulus == 0
+  return perfect_square
 
 def main():
   #uncomment the lines that match your assignment
